@@ -5,5 +5,5 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/question")
-public class QuestionApi {
+public class  QuestionApi {
 }

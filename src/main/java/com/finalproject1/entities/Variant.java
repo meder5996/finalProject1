@@ -26,13 +26,7 @@ public class Variant {
     private String variantName;
     private boolean answer = false;
 
-    public Variant(String variantName, boolean answer) {
-        this.variantName = variantName;
-        this.answer = answer;
-    }
-
-    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH},
-            fetch = FetchType.EAGER)
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "question_id")
     private Question question;
 }

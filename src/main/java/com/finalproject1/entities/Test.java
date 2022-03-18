@@ -8,7 +8,7 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "test")
+@Table(name = "tests")
 @NoArgsConstructor
 public class Test {
 
@@ -26,17 +26,12 @@ public class Test {
     private String title;
     private String duration;
 
-    public Test(String title, String duration) {
-        this.title = title;
-        this.duration = duration;
-    }
+    @OneToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH},
+            mappedBy = "test")
+    private List<User> userList;
 
     @OneToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH},
-            fetch = FetchType.EAGER, mappedBy = "test")
-    private List<User> userLis;
-
-    @OneToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH},
-            fetch = FetchType.EAGER, mappedBy = "test")
+            mappedBy = "test")
     private List<Question>questionList;
 
 }

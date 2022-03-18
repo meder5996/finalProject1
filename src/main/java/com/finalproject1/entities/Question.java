@@ -23,10 +23,6 @@ public class Question {
     private Long id;
     private String questionName;
 
-    public Question(String questionName) {
-        this.questionName = questionName;
-    }
-
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "test_id")
     private Test test;
